@@ -1,6 +1,26 @@
 /*
 Trekk-in x and318
 */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.info {
+  background-image: url("../img/bg-hero.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  height: 100vh;
+}
+
+.price {
+  background-image: url("../img/bg-price.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
 .main {
   display: grid;
   grid-template-columns: 1fr;
