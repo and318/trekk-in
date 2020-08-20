@@ -5,21 +5,34 @@ body {
 .navbar {
     display: grid;
 grid-template-columns: repeat(9, 1fr);
-grid-template-rows: 1fr; 
+grid-template-rows: 1fr;
     padding: 1.5625rem 3.125rem;
-    
-    
+    @include respond-to($max-mobile) {
+        grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 1fr; 
+    }
+
+
 
     &__brand {
         grid-area: 1 / 1 / 2 / 2;
+        @include respond-to($max-mobile) {
+            grid-area: 1 / 1 / 2 / 2; 
+        }
+
         &__logo {
             padding: 50px;
         }
     }
+
     &__first__menu {
         grid-area: 1 / 2 / 2 / 7;
         display: flex;
         list-style: none;
+        @include respond-to($max-mobile) {
+            display: none;
+        }
+
         li {
             padding: 0 10px;
             justify-content: center;
@@ -32,16 +45,21 @@ grid-template-rows: 1fr;
                 display: block;
                 padding: 3px 12px;
                 text-decoration: none;
+
             }
         }
     }
 
-    
+
     &__second__menu {
         grid-area: 1 / 7 / 2 / 10;
-        grid-column-start:8;
+        grid-column-start: 8;
         display: flex;
         list-style: none;
+        @include respond-to($max-mobile) {
+            display: none;
+        }
+
         li {
             padding: 0 10px;
             justify-content: center;
@@ -54,8 +72,30 @@ grid-template-rows: 1fr;
                 display: block;
                 padding: 3px 12px;
                 text-decoration: none;
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: $middle-blue;
+                    ;
+                }
             }
+            
         }
+    }
+    &__bar {
+        
+        display: none;
+        grid-area: 1 / 7 / 2 / 9;
+        @include respond-to($max-mobile) {
+            text-decoration: none;
+            display: block;
+            grid-area: 1 / 2 / 2 / 3;
+            justify-self: end;
+            color: $black;
+            font-size: $large;
+            
+        }
+
     }
 }
 
@@ -70,10 +110,16 @@ grid-template-rows: 1fr;
     background-size: contain;
     background-position: right;
     height: 48.75rem;
+    @include respond-to($max-mobile) {
+        height: 100vh;
+    }
 
     &__hero {
         grid-area: 1 / 1 / 2 / 2;
         padding: 3.125rem 0 0 3.125rem;
+        @include respond-to($max-mobile) {
+            grid-area: 1 / 1 / 4 / 4;
+        }
 
         h1 {
             font-size: $xx-large;
@@ -89,11 +135,19 @@ grid-template-rows: 1fr;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 1fr;
     grid-template-rows: repeat(3, 1fr);
+    @include respond-to($max-mobile) {
+        grid-template-columns: 1fr;
+grid-template-rows: repeat(3, 1fr); 
+height: 70vh;
+    }
 
     &__title {
         grid-area: 1 / 2 / 2 / 4;
         font-size: $x-large;
         text-align: center;
+        @include respond-to($max-mobile) {
+            grid-area: 1 / 1 / 2 / 2; 
+        }
     }
 
     &__graphic {
@@ -101,11 +155,21 @@ grid-template-rows: 1fr;
         display: grid;
         justify-content: center;
         align-content: center;
+        @include respond-to($max-mobile) {
+            grid-area: 2 / 1 / 3 / 2;
+        }
 
     }
 
     &__stats {
         grid-area: 2 / 3 / 4 / 4;
+        @include respond-to($max-mobile) {
+            grid-area: 3 / 1 / 4 / 2;
+            padding: 30px;
+            h3 {
+                text-align: center;
+            }
+        }
     }
 }
 
@@ -115,8 +179,11 @@ grid-template-rows: 1fr;
     background-size: cover;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     padding-bottom: 10%;
+    @include respond-to($max-mobile) {
+            grid-area: 1 / 1 / 2 / 5;
+        }
 
 
     &_title {
@@ -125,18 +192,24 @@ grid-template-rows: 1fr;
         text-align: center;
         font-size: $large;
         align-self: center;
+        @include respond-to($max-mobile) {
+            grid-area: 1 / 1 / 2 / 5;
+        }
     }
 
-    &__card-a,
-    &__card-b {
-        grid-area: 3 / 2 / 5 / 3;
+    &__card-a {
+        grid-area: 3 / 2 / 6 / 3;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         background-color: $white;
         padding: 10%;
-        height: 100%;
         margin: 15px;
+        @include respond-to($max-mobile) {
+            grid-area: 2 / 1 / 4 / 5;
+            min-height: 10px;
+        }
+
 
         &__title {
             h1 {
@@ -162,6 +235,9 @@ grid-template-rows: 1fr;
             padding: 30px 0;
             line-height: 35px;
             list-style-type: none;
+            @include respond-to($max-mobile) {
+                font-size: $medium;
+            }
 
             li {
                 &::before {
@@ -187,13 +263,90 @@ grid-template-rows: 1fr;
                 display: block;
                 padding: 10px;
                 text-decoration: none;
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: $middle-blue;
+                }
             }
         }
+        
     }
 
 
     &__card-b {
-        grid-area: 3 / 3 / 5 / 4;
+        grid-area: 3 / 3 / 6 / 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: $white;
+        padding: 10%;
+        margin: 15px;
+        @include respond-to($max-mobile) {
+            grid-area: 4 / 1 / 6 / 5;
+            min-height: 10px;
+        }
+
+        &__title {
+            h1 {
+                font-size: $large;
+                padding-bottom: 10px;
+            }
+
+            h3 {
+                font-size: $x-medium;
+                font-weight: 400;
+                padding-bottom: 10px;
+            }
+
+            border-bottom: 1px solid $silver;
+            height: 30%;
+        }
+
+        &__list {
+            flex-grow: 1;
+            align-content: flex-start;
+            height: 50%;
+            font-size: $small;
+            padding: 30px 0;
+            line-height: 35px;
+            list-style-type: none;
+            @include respond-to($max-mobile) {
+                font-size: $medium;
+            }
+
+            li {
+                &::before {
+                    content: "•";
+                    font-size: 10pt;
+                    padding-right: 10px;
+                }
+            }
+
+
+        }
+
+        &__action {
+            text-align: center;
+            border-top: 1px solid $silver;
+            height: 20%;
+            padding-top: 20px;
+            flex-basis: content;
+
+            a {
+                background-color: $ball-blue;
+                color: $white;
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: $middle-blue;
+                }
+            }
+        }
+
     }
 }
 
@@ -202,8 +355,9 @@ grid-template-rows: 1fr;
     color: $white;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr;
     font-size: $small;
+
     a {
         color: $white;
         text-decoration: none;
@@ -211,18 +365,23 @@ grid-template-rows: 1fr;
 
 
     &__about {
-        grid-area: 1 / 1 / 2 / 7;
-        grid-column-start:2;
+        grid-area: 1 / 2 / 2 / 7;
         align-self: center;
+
         a {
-            padding: 0 10px ;
+            padding: 0 10px;
+        }
+        @include respond-to($max-mobile) {
+            grid-area: 1 / 3 / 2 / 13;
         }
 
     }
 
     &__copyright {
-        grid-area: 1 / 7 / 2 / 13;
-        grid-column-start:10;
+        grid-area: 1 / 10 / 2 / 13;
         align-self: center;
+        @include respond-to($max-mobile) {
+            grid-area: 3 / 5 / 2 / 13;
+        }
     }
 }

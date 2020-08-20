@@ -1,6 +1,7 @@
 //Main Font
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 // colors
 
@@ -9,6 +10,7 @@ $raising-black: #221D23;
 $black: #000;
 $white: #fff;
 $silver:#aeacaf;
+$middle-blue: #77d1dd;
 
 //Breakpoints
 
@@ -25,3 +27,9 @@ $large: 1.875rem;
 $x-medium: 1.5625rem;
 $medium: 1rem;
 $small:0.75rem;
+
+
+//BREAKPOINT 
+
+$min-laptop: 768px;
+$max-mobile:576px;
